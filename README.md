@@ -5,6 +5,8 @@
 
 Example code for using Django `BaseCommand`.
 
+## `Faker` library
+
 ## Commands
 
 - `python manage.py print_greeting`
