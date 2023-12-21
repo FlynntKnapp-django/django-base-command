@@ -7,12 +7,21 @@ class Command(BaseCommand):
     help = "Creates Named Kittens"
 
     def handle(self, *args, **kwargs):
-        self.stdout.write(f"Creating Named Kittens...")
-        Kitten.objects.create(name="Felix", age=3)
-        Kitten.objects.create(name="Garfield", age=5)
-        Kitten.objects.create(name="Sylvester", age=4)
-        Kitten.objects.create(name="Tom", age=2)
-        Kitten.objects.create(name="Greta", age=10)
-        Kitten.objects.create(name="Dezzi", age=13)
-        Kitten.objects.create(name="Bunbun", age=13)
-        self.stdout.write(self.style.SUCCESS(f"Created Named Kittens!"))
+        self.stdout.write("Creating Named Kittens...")
+
+        # Define a dictionary of kitten names and ages
+        kittens = {
+            "Felix": 3,
+            "Garfield": 5,
+            "Sylvester": 4,
+            "Tom": 2,
+            "Greta": 10,
+            "Dezzi": 13,
+            "Bunbun": 13,
+        }
+
+        # Iterate over the dictionary and create each kitten
+        for name, age in kittens.items():
+            Kitten.objects.create(name=name, age=age)
+
+        self.stdout.write(self.style.SUCCESS("Created Named Kittens!"))
